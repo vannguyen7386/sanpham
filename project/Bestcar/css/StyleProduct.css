@@ -1,0 +1,96 @@
+#wrap{
+	margin:0 auto;
+	width:730px;
+	overflow:hidden;	
+}
+#wrap ul{
+	list-style:none;
+}
+#wrap .Product{
+	margin-top:10px;
+	width:325px;
+	__width:297px;
+	__height:150px;
+	#width:297px;
+	border:1px solid #1172e1;
+	padding:0 0 10px 10px;
+	color:#FFFFFF;
+}
+.Product .cast img, .Product .detail img{
+	margin:10px 0 0 0;
+}
+
+#wrap .top{
+	width:auto;
+	height:31px;
+	background:url(../Image/bullet.gif) no-repeat left top;
+	margin:45px 0 5px 10px;
+	color:#FFFFFF;
+	border-bottom:2px solid #1172e1;
+	font-size:18px;
+	height:31px;
+	padding-left:35px;
+	padding-top:3px;
+}
+
+#wrap .top span{
+	font-size:14px;
+}
+
+
+.car{
+	float:left;
+	margin-right:10px;
+	margin-top:5px;
+	border:1px solid #FFFFFF;
+}
+#wrap ul li{
+	float:left;
+	margin: 0 0 25px 20px;
+}
+#wrap .Product h3{
+	margin:0;
+	text-shadow:#000000 1px 1px;
+}
+#wrap .Product h3 span{
+	color:#FFFFFF;
+	font-size:14px;
+}
+
+.info{
+	margin-left:186px;
+}
+.hide{
+	width:325px;
+	_width:297px;
+	#width:297px;
+	text-align:justify;
+}
+	
+.info a{
+	margin-right:3px;
+}
+
+#wrap a{
+	color:#0033CC;
+}
+#pageNum{
+	text-align:right;
+	margin-bottom:15px;
+	clear:both;
+}
+#pageNum span,#pageNum a{
+	font-size:14px;
+	padding:5px;
+	background:#8AB1FE;
+	margin:5px;
+	text-decoration:none;
+	border:1px solid #8AB1FE;
+	-moz-border-radius:3px;
+}
+#pageNum a:hover,active{
+	color:#CCCCCC;
+}
+#pageNum span{
+	font-weight:bold;
+}

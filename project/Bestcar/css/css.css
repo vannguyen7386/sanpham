@@ -1,0 +1,381 @@
+/* CSS Document */
+/**RESET CSS**/
+	html, body, div, span, applet, object, iframe,p, blockquote, pre, a, abbr, acronym,
+address, big, cite, code, del, dfn, em, font, img, ins,
+kbd, q, s, samp, small, strike, sub, sup, tt,
+var, dl, dt, dd, ol, ul, li, form, label, 
+caption, tbody, tfoot, thead{
+margin:0;
+padding:0;
+outline:0;
+font-weight:normal;
+font-family:Arial, Helvetica, sans-serif; font-size : 12px;
+border:0;
+}
+
+/**End Reset CSS**/
+input:hover{
+		background:lightblue;
+	}
+body{
+	background:url(../Image/bg_02.png);
+	background-attachment:fixed;
+}
+.float-Right{
+	float:right;
+	font-size:16px;
+}
+
+#Wrapper{
+	margin:0 auto;
+	width:963px;
+	height:auto;
+	border:1px solid #CCCCCC;
+}
+/**Header**/
+#Header{
+	width:962px;
+	height:27px;
+	background:#3d4055;
+	color:#afd3b7;
+	border-bottom:1px solid #CCCCCC;
+	font-size:16px;
+}
+#Header a{
+	padding:10px;
+	color:#afd3b7;
+	font-size:16px;
+	text-decoration:none;
+}
+#Header a:hover,active{
+	color:#D17601;
+	text-decoration:underline;
+}
+/*end Header*/
+
+/**Banner**/
+#Banner{
+	width:963px;
+	height:208px;
+	background:url(../Image/Banner.jpg) no-repeat;
+	text-indent:-99999px;
+}
+/*end Banner*/
+
+/**Navigator**/
+
+#Navigator ul,ol{
+	list-style:none;
+}
+#Navigator ul li{
+	float:left;
+}
+#Navigator ul li a{
+	display:block;
+}
+#Navigator ul li.Home a{
+	width:160px;
+	height:40px;
+	background:url(../Image/Navi-Group.png) no-repeat;
+	position:relative;
+}
+#Navigator ul li.Home a img{
+	position:absolute;
+	top:5px;
+	left:14px;
+}
+#Navigator ul li.Home a:hover{
+	background-position:0px -40px;
+}
+#Navigator ul li.Intro a{
+	width:145px;
+	height:40px;
+	background:url(../Image/Navi-Group.png) no-repeat;
+	background-position:-160px 0px;
+	text-indent:-9999px;
+}
+#Navigator ul li.Intro a:hover{
+	background-position:-160px -40px;
+}
+#Navigator ul li.Product a{
+	width:120px;
+	height:40px;
+	background:url(../Image/Navi-Group.png) no-repeat;
+	background-position:-305px 0px;
+	text-indent:-9999px;
+}
+#Navigator ul li.Product a:hover{
+	background-position:-305px -40px;
+}
+#Navigator ul li.News a{
+	width:110px;
+	height:40px;
+	background:url(../Image/Navi-Group.png) no-repeat;
+	background-position:-425px 0px;
+	text-indent:-9999px;
+}
+#Navigator ul li.News a:hover{
+	background-position:-425px -40px;
+}
+#Navigator ul li.Contact a{
+	width:108px;
+	height:40px;
+	background:url(../Image/Navi-Group.png) no-repeat;
+	background-position:-535px 0px;
+	text-indent:-9999px;
+}
+#Navigator ul li.Contact a:hover,active{
+	background-position:-535px -40px;
+}
+#Navigator ul li.Search{
+	width:320px;
+	height:40px;
+	background:url(../Image/Navi-Group.png) no-repeat;
+	background-position:-643px 0px;
+	position:relative;
+}
+#Navigator ul li.Search .search_txtBox{
+	display:block;
+	height:12px;
+	position:absolute;
+	right:53px;
+	top:7px;
+}
+#Navigator ul li.Search .Search_submit{
+	position:absolute;
+	right:13px;
+	top:4px;
+}
+#Navigator ul li.Search .Search_submit{
+	background:none;
+}
+/*end Navigator*/
+
+/**CONTENT**/
+#Content{
+	width:962px;
+	overflow:hidden;
+	/*background:url(../Image/motor_173.jpg);*/
+	background-attachment:fixed;
+}	
+/*Sidebar*/
+#Sidebar{
+	margin-top:-15px;
+	float:left;	
+	width:180px;
+}
+
+#Sidebar img{
+	margin:0 20px 0 20px ;	
+}
+#Sidebar ul{
+	list-style:none;
+}
+
+#Sidebar dl{
+	margin:30px 20px;
+}
+
+#Sidebar dl dt{
+	margin-top:10px;
+}
+#Sidebar dl dt a{
+	display:block;
+	width:174px;
+	height:33px;
+	background:url(../Image/Button2.gif) no-repeat;
+	color:#FFFFFF;
+	font-size:24px;
+	font-family:"Times New Roman", Times, serif;
+	text-align:center;
+	text-decoration:none;
+	font-style:italic;
+	font-weight:bold;
+	text-shadow:#333333 1px 1px;
+}
+#Sidebar dl dt a:hover,active{
+	background:url(../Image/Button2_hover.gif) no-repeat;
+}
+
+#Sidebar dl dd{
+	margin-left:1px;
+	width:170px;
+	border:1px solid #999999;
+	-moz-border-radius:0 0 5px 5px;
+	border-top:none;
+	background:#FFFFFF;
+}
+#Sidebar ul li{
+	border-bottom:1px solid #999999;
+	position:relative;
+}
+#Sidebar ul li a{
+	padding-top:12px;
+	padding-left:40px;
+	display:block;
+	height:20px;
+	text-decoration:none;
+	color:#000000;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	background:url(../Image/Arrow_Yellow.gif) no-repeat 18px 10px;
+	position:relative;
+}
+#Sidebar ul li a >span{
+	display:block;
+	background:url(../Image/Arrow.gif);
+	width:20px;
+	height:20px;
+	position:absolute;
+	top:10px;
+	left:150px;
+}
+#Sidebar ul li a:hover{
+	font-weight:bold;
+	font-style:oblique;
+}
+#Sidebar ul li > div{
+	width:180px;
+	border:1px solid #999999;
+	position:absolute;
+	left:60px;
+	top:-10px;
+	background:#FFFFFF;
+	z-index:9999;
+	display:none;
+}
+
+#Sidebar ul li ul{
+	position:absolute;
+	background:#FFFFFF;
+	width:170px;
+	top:-1px;
+	left:170px;
+	_left:-170px;
+	#left:-170px;
+	z-index:1000;
+	border:1px solid #999999;
+	display:none;
+}
+
+#Sidebar .HelpOnline {
+	-moz-border-radius:5px 5px 5px 5px;
+	border:1px solid #999999;
+	margin:10px 0 10px 20px;
+	padding-bottom:10px;
+	width:174px;
+	background:#FFFFFF;
+}
+#Sidebar .HelpOnline h3 {
+	background:url("../Image/Button2.gif") 0 50% transparent;
+	color:#FFFFFF;
+	margin:0 0 15px;
+	padding:2.5px;
+	font-size:14px;
+}
+#Sidebar .HelpOnline a img{
+	margin:0 0 10px 20px;
+}	
+#Sidebar .HelpOnline p{
+	margin:0 0 10px 10px ;
+	color:#000000;
+	overflow:hidden;
+}
+#Sidebar .HelpOnline p span{
+	display:block;
+	width:50px;
+	float:left;
+}
+#Sidebar .HelpOnline option {
+	width:80px;
+}
+
+/*end Sidebar*/
+
+/*MainContent*/
+#MainContent #top_menu{
+	width:100%;
+	position:absolute;
+	top:-30px;
+	right:15px;
+	height:auto;
+}
+#top_menu a{
+	display:block;
+	width:113px;
+	height:23px;
+	background:url(../Image/Button_small.gif) no-repeat;
+	float:right;
+	margin:20px 34px;
+	font-family:"Times New Roman", Times, serif;
+	text-decoration:none;
+	color:#FFFFFF;
+	font-size:14px;
+	font-weight:bold;
+	text-align:center;
+	/*hack IE6*/
+	_margin-right:27px;
+	text-shadow:#333333 1px 1px;
+}
+#top_menu a:hover,active{
+	background:url(../Image/Button_small_hover.gif) no-repeat;
+}
+
+#top_menu a.VipCar img{
+	position:absolute;
+	left:50px;
+	
+}
+#top_menu a.NewCar img{
+	position:absolute;
+	top:16px;
+	right:312px;
+}
+#MainContent{
+	width:745px;
+	margin-top:30px;
+	float:right;
+	background:url(../Image/content_bg.png);
+	position:relative;
+	border:1px solid #999999;
+	-moz-border-radius:5px;
+	padding-bottom:15px;
+}
+/*end Maincontent*/
+
+/*Copyright*/
+#Content p{
+	clear:both;
+	margin-bottom:20px;
+	color:#FFFFFF;
+}
+
+/**END CONTENT**/
+
+/**FOOTER**/
+#footer{
+	width:962px;
+	height:27px;
+	background:#3d4055;
+	color:#afd3b7;
+	border-top:1px solid #CCCCCC;
+	font-size:16px;
+	text-align:center;
+}
+#footer a{
+	padding:10px;
+	color:#afd3b7;
+	font-size:16px;
+}
+#footer a:hover,active{
+	color:#d0765e;
+}
+
+
+
+
+
+
+
+
+
