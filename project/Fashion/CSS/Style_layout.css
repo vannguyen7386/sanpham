@@ -1,0 +1,746 @@
+/* CSS Document */
+/** RESET CSS **/
+html, body, div, span, applet, object, iframe,
+p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+u, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+caption, tbody, tfoot, thead,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 62.5%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/*** WEBSITE ***/
+.star{
+    margin:0 10px 3px 0;
+}
+body{
+	background:url(../Image/Bg.jpg) no-repeat;
+	background-attachment:fixed;
+}
+/** Wrapper **/
+#Wrapper{
+	width:960px;
+	height:auto;
+	font-family:"Times New Roman", Times, serif;
+	margin:0 auto;
+	background:#FFFFFF;
+}
+
+#Header #Navi_bar a#Here{
+    color:#c6eeba;
+}
+/*Header*/
+#Header{
+	width:100%;
+}
+#Header #Banner{
+	width:100%;
+	height:150px;
+}
+#Header #Navi_bar{
+	width:100%;
+	height:29px;
+	background:url(../Image/Navi.png) repeat-x;
+	line-height:29px;
+	text-align:center;
+}
+#Header #Navi_bar a{
+	padding:0 30px 0 0;
+	color:#f8f4f4;
+	font-size:17px;
+	text-decoration:none;
+	font-style:italic;
+	font-weight:bold;
+}
+#Header #Navi_bar a:hover,active{
+	color:#c6eeba;
+}
+
+/*TopMenu*/
+#TopMenu{
+	width:100%;
+	height:50px;
+	line-height:50px;
+	position:relative;
+}
+
+#TopMenu p.TopLink{
+    margin:0 0 0 20px;
+}
+#TopMenu p.TopLink a{
+    color: black;
+    margin: 0 5px;    
+    font-size:14px;
+    font-weight: bold;
+    font-family:Arial;
+    text-decoration: none;
+    
+}
+#TopMenu p.TopLink a.Home{
+    padding-left:18px;
+    background: url(../Image/ArrowRed.png) no-repeat 0 2px;   
+}
+#TopMenu p.TopLink a:hover{
+    text-decoration: underline;
+    color:red;
+}
+select.Select{
+	font-size:12px;
+	color:#494949;
+	height:20px;
+	margin-right:8px;
+    border:1px solid #cccccc;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+input.Search_value{
+	font-size:12px;
+	width:200px;
+    border:1px solid #cccccc; 
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color:#494949;
+    padding:2px;
+}
+
+div.MenuFirst p.Display{
+    text-align: right;
+	font-style:italic;
+	font-weight:bold;
+    margin:10px 20px 0 0;
+}
+#TopMenu p.Search{
+	position:absolute;
+	top:0;
+	right:20px;
+	font-style:italic;
+	font-weight:bold;
+}
+
+
+#TopMenu img.Search_icon{
+	position:absolute;
+	top:16px;
+	right:22px;
+}
+
+/** CONTAINER **/
+/*Sidebar*/
+#Container #Sidebar{
+	width:160px;
+	padding:0 10px 0 20px;
+	float:left;  
+}
+#Sidebar div.Item_Sidebar{
+    margin:0 0 30px 0;
+}
+
+#Sidebar div.Item_Sidebar h2{
+	width:151px;
+	height:32px;
+	background:url(../Image/CateMenu.png) no-repeat;
+	margin:0;
+    text-align: center;
+   
+ }
+ #Sidebar div.Item_Sidebar h2 a{
+    color:white;
+    font-weight: lighter;
+    font-size: 24px;
+    font-style: italic;
+    text-shadow:1px 1px black; 
+    text-decoration: none; 
+ }
+#Sidebar div.Item_Sidebar ul{
+	list-style:none;
+	margin:0 0 10px 0;
+}
+
+#Sidebar div.Item_Sidebar ul li{
+	width:149px;
+	height:26px;
+	line-height:26px;
+	margin:0;
+    position: relative;
+    border:1px solid #cccccc;
+    border-top: none;
+}
+
+#Sidebar div.Item_Sidebar ul li:hover a{
+	background:url(../Image/Arrow_icon.png) no-repeat 10px 8px;
+	color:red;
+}
+.Place{
+    background:url(../Image/Arrow_icon.png) no-repeat 10px 8px;
+	color:red !important; 
+    font-weight:bold;   
+}
+#Sidebar ul li ul{
+    position: absolute;
+    background: white;
+    top:-15px;
+    left:140px;  
+    display:none;  
+}
+#Sidebar ul li:hover ul.submenu{
+    display: block;
+}
+#Sidebar ul li:hover ul.submenu li a{
+    background: none;
+    color:black;
+}
+#Sidebar ul li ul.submenu li:hover a{
+    background:url(../Image/Arrow_icon.png) no-repeat 10px 8px;
+	color:red;
+}
+
+#Sidebar div.Item_Sidebar ul li a{
+	display:block;
+	width:129px;
+	height:26px;
+	font-size:14px;
+	color:#000000;
+	font-style:italic;
+	text-decoration:none;
+	padding:0 0 0 20px;
+}
+#Sidebar div.AdvLeft{
+    margin:20px 0 0 0;
+    width:152px;
+}
+#Sidebar div.AdvLeft img{
+    margin:5px 0 0 0;    
+}
+#Sidebar div.AdvLeft img.fixed_left{
+    position: fixed;
+    top:260px;
+    left:20px;    
+}
+
+/**Content**/
+#Content{
+    width:530px;
+    float:left;
+	
+}
+/*TopContent*/
+
+#Content div.TopContent{
+    width:530px;  
+    height:250px;
+    border:1px solid black;
+    margin:0 0 20px 0;
+    position: relative;
+    overflow:hidden;
+}
+div.info{
+    position:absolute;
+    z-index:100;
+    color:#FFFFFF;
+    text-shadow:1px 1px black;
+    background:black;
+    width:530px;
+    height:60px;
+    opacity:.3;
+    top:190px;
+}
+p.info{
+    position:absolute;
+    z-index:0;
+    color:#FFFFFF;
+    text-shadow:1px 1px black;
+    top:190px;
+    margin:0 10px;
+    text-align:justify;
+}
+#imageShow{
+    position: relative;
+    list-style: none;
+}
+        
+#imageShow li {
+    position: absolute;
+    top: 0px; left: 0px;
+    z-index: 0;
+}
+        
+#imageShow li.previous {
+    z-index: 50;
+}
+        
+#imageShow li.current {
+    z-index: 100;
+}
+        
+p.previous {
+    z-index: 0;
+}
+        
+p.current {
+    z-index: 100;
+}
+
+
+/**MainContent**/
+#Main_Content{
+	border:1px solid #a1a1a1;
+	width:530px;
+
+}
+
+#Main_Content ul{
+	list-style:none;
+	padding:0 0 0 40px;
+}
+#Main_Content div.MenuFirst div.FormContact{
+    margin:20px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color:#494949;	
+}
+#Main_Content div.MenuFirst div.FormContact p{
+    line-height: 30px;
+}
+#Main_Content div.MenuFirst div.Captcha{
+    margin: 10px 0 20px;
+}
+#Main_Content div.MenuFirst p input.Text{
+    margin: 0  5px 0 15px;
+    width: 220px;
+    height:15px;
+    padding:2px;
+    
+}
+#Main_Content div.MenuFirst p .Text{
+    border:1px solid #CCCCCC;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color:#494949;	   
+}
+#Main_Content div.MenuFirst div.DetailProd{
+	margin:20px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color:#494949;
+}
+#Main_Content div.MenuFirst div.DetailProd img.MainImg{
+    border:2px solid #999999;   
+    padding:5px;
+    float:left;
+    margin:0 10px 20px 0;
+}
+#Main_Content div.MenuFirst div.DetailProd div.InfoProd{
+	border:2px solid #CCCCCC;
+	width:230px;
+	float:right;	
+	margin:0 0 20px 0;
+	padding:5px 10px;
+}
+#Main_Content div.MenuFirst div.DetailProd div.InfoProd p{
+	line-height:25px;
+}
+#Main_Content div.MenuFirst div.DetailProd div.InfoProd p a{
+    color:blue;
+}
+#Main_Content div.MenuFirst div.DetailProd div.InfoProd p span.content{
+	padding:0 0 0 40px;
+}
+#Main_Content div.MenuFirst div.DetailProd div.InfoProd p.detail{
+	margin-top:15px;
+	border-top:1px dashed #999999;
+	text-align:justify;
+}
+#Main_Content div.MenuFirst div.DetailProd a.Order{
+    display:block;
+    width:90px;
+    height:29px;
+    background: url(../Image/Order2.png) repeat-x;
+    clear:both;
+    margin:0 0 0 320px;
+    border:1px solid red;
+    text-align: center;
+    line-height:29px;
+    font-size:18px;
+    font-family:"Times New Roman", Times, serif;
+    color:white;
+    text-decoration: none;
+    text-shadow:1px 1px 1px #494949;
+
+}
+#Main_Content div.MenuFirst div.DetailProd a.Order:hover{
+    background: url(../Image/Order2_hover.png) repeat-x; 
+    border:1px solid aqua;
+}
+#Main_Content div.MenuFirst div.DetailProd div.ReviewInfo{
+    border:1px dashed #BDBDBD; 
+    border-left:none;
+    border-right:none; 
+    padding:5px;      
+    margin: 0 0 10px 0;
+}
+#Main_Content div.MenuFirst div.DetailProd div.ReviewInfo div.EditProcess{
+    
+}
+#Main_Content div.MenuFirst div.DetailProd div.ReviewInfo div.EditProcess a.Edit{
+    background:url(../Image/Edit.png) no-repeat;
+    width:22px;
+    height:22px;
+    display: block;
+    float:right;
+    margin-right: 10px;
+}
+#Main_Content div.MenuFirst div.DetailProd div.ReviewInfo div.EditProcess a.Delete{
+    background:url(../Image/DeleteRed.png) no-repeat;
+    width:22px;
+    height:22px;
+    display: block;
+    float:right;
+    margin-right: 20px;
+}
+#Main_Content div.MenuFirst div.DetailProd div.ReviewInfo span.Date{
+    color:#999999;
+    font-size:10px;
+    padding-left: 12px;
+}
+#Main_Content div.MenuFirst div.DetailProd div.ReviewInfo p.Email{
+    font-style: italic;
+    margin-bottom: 15px;
+    color:#999999;
+}
+#Main_Content div.MenuFirst div.ReviewCustome{
+    padding:20px;   
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color:#494949;	 
+}
+#Main_Content div.MenuFirst div.ReviewCustome p{
+    line-height:30px;
+}
+#Main_Content div.MenuFirst div.ReviewCustome form{
+    padding:0 15px;
+}
+
+
+#Main_Content div.MenuFirst ul{
+    margin: 20px 0 0 0;	
+    
+}
+#Main_Content div.MenuFirst ul li{
+	width:180px;
+	float:left;
+	padding:15px 20px 10px 30px;
+    border:1px solid #cccccc;
+    margin: 0 10px 30px 0;
+    font-size:12px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+#Main_Content div.MenuFirst ul li h3{
+	margin:0 0 5px 40px;
+	font-size:16px;
+	
+}
+div#Pagging{
+    text-align: center;
+    margin: 0 0 20px 0;
+    clear: both;  
+}
+div#Pagging a{
+    padding:3px 7px;
+    border:1px solid #878787;
+    margin:0 7px 0 0;
+    font-weight:bold;
+    background:url(../Image/PagLink.png) repeat-x;
+    color:white;
+    text-decoration: none;
+    text-shadow:1px 1px black;
+}
+div#Pagging span{
+    padding:3px 7px;
+    border:1px solid #20c020;
+    margin:0 7px 0 0;
+    font-weight:bold;
+    background:url(../Image/PagLink_Hover.png) repeat-x;
+    color:white;   
+    text-shadow:1px 1px black; 
+}
+
+div#Pagging a:hover{
+    border:1px solid #20c020;
+    background:url(../Image/PagLink_Hover.png) repeat-x;
+    text-decoration: underline;
+    text-shadow:1px 1px black;
+}
+#Main_Content div.MenuFirst ul li img.ProductImg{
+	padding:5px;
+    margin:0 0 5px 0;
+}
+#Main_Content div.MenuFirst ul li p{
+	font-style:italic;
+	margin:0 0 0 20px;
+}
+#Main_Content div.MenuFirst ul li p b{
+	font-style:normal;	
+}
+#Main_Content div.MenuFirst ul li p.button{
+	margin:10px 0 10px 15px;
+}
+#Main_Content div.MenuFirst table.Cart{
+    margin:30px auto 20px;
+    font-size: 12px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+input.text{
+    border:1px solid #cccccc;
+    font-size: 12px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+#Main_Content div.MenuFirst table.Cart td{
+    border:1px solid #CCCCCC;
+}
+#Main_Content div.MenuFirst div.CartView{
+    margin: 0 0 30px 0;
+}
+#Main_Content div.MenuFirst table.Cart tr.first{
+    background:url(../Image/FooterMenu.png);
+    height:25px;
+    color:white;
+    line-height: 25px;
+    font-size: 13px;
+    
+}
+img#LargeImg{
+    border:10px solid #ddd;
+    position: absolute;
+    top:-20px;
+    right:-270px;
+    z-index: 9999;
+    display: none;
+}
+#Main_Content div.MenuFirst a.Del{
+    width:22px;
+    height:22px;
+    display:block;
+    background:url(../Image/DeleteRed.png) no-repeat;
+}
+#Main_Content div.MenuFirst a.display{
+    position: relative;
+}
+#Main_Content div.MenuFirst a.display:hover img#LargeImg{
+    display:block;    
+}
+#Main_Content div.MenuFirst table.Cart tr.first td{
+    border:none;
+}
+a.button{
+    padding: 3px 7px 3px 8px;
+    background: url(../Image/Button.png) repeat-x;  
+    color:white;
+    text-decoration: none;
+    text-shadow:1px 1px black; 
+    margin:0 5px;
+    line-height: 30px; 
+    border:1px solid red;
+}
+a.button:hover{
+    background: url(../Image/Button_hover.png) repeat-x; 
+    border:1px solid aqua;
+}
+.red{
+	color:red;
+	font-style:normal;
+}
+#Main_Content div.MenuSecond{
+	margin:0;
+	overflow:hidden;
+    font-size: 12px;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#494949;
+}
+#Main_Content div.MenuSecond div.InfoExp{
+    padding:20px;
+}
+#Main_Content div.MenuFirst h2,#Main_Content div.MenuSecond h2{
+	width:720px;
+	height:25px;
+	background:url(../Image/MenuBar.png) no-repeat;
+	color:#FFFFFF;
+	text-shadow:1px 1px #3a3a3a;
+	font-size:17px;
+	line-height:25px;
+	font-style:italic;
+	padding:0 0 0 20px;
+	margin:0;
+    font-family:"Times New Roman", Times, serif;
+}
+#Main_Content div.MenuSecond ul li{
+	margin:15px 20px 0 -10px;	
+	overflow:hidden;
+    border-bottom: 1px dashed #BEBEBE;
+    padding:0 0 5px 0;
+}
+#Main_Content div.MenuSecond h3{
+	font-size:14px;
+	font-style:italic;
+	margin:0;
+}	
+#Main_Content div.MenuSecond img.Head{
+	float:left;
+	padding:0 10px 5px 5px;	
+}
+#Main_Content div.MenuSecond  p{
+	font-size:12px;
+	text-align:justify;
+}
+#Main_Content div.MenuSecond  p.Date{
+    font-size:11px;
+    color:#999999;
+}
+
+a.ReadMore{
+	float:right;
+	color:#0c38f2;
+	font-weight:bold;
+	text-decoration:none;
+    margin-top:15px;
+}
+a.ReadMore:hover{
+	color:#3b5def;
+}
+div#SidebarRight{
+    width:195px;
+    float:right;
+    padding:0 20px;
+    overflow:hidden;
+    margin:0 0 20px 0;
+}
+div.Online{
+	width:195px;
+    text-align: center;
+    padding: 0 0 20px 0;
+    border:1px solid #CCCCCC;
+    overflow: hidden;
+}
+div.Online div.WrapYahoo{
+    padding:0 0 0 15px;
+}
+div.Online div.Yahoo{
+    margin:0 5px;
+    font-size:12px;
+    font-family: arial;
+    color:#494949;
+    float:left;
+}
+div.Online div.Yahoo p{
+    margin:5px 0;
+    font-weight:bold;
+}
+div.Online h2{
+	width:195px;
+	height:32px;
+	margin:0 0 15px;
+    color:white;
+    text-shadow:1px 1px black;
+    font-style: italic;
+	background:url(../Image/OnlineMenu.png) no-repeat;
+    font-size:22px;
+    font-weight:lighter;
+    line-height:32px;
+}
+div#SidebarRight div.Statistics{
+    width:195px;
+    padding: 0 0 20px 0;
+    margin:30px 0 0 0; 
+    
+}
+div#SidebarRight div.Statistics ul{
+    list-style: none;
+}
+div#SidebarRight div.Statistics ul li{
+    border:1px solid #CCCCCC;
+    width:183px;
+    height:30px;
+    line-height: 30px;
+    padding:0 0 0 10px;
+    border-top:none;
+}
+div#SidebarRight div.Statistics ul li span{
+    padding:0 0 0 20px;
+    font-weight:bold;
+}
+div#SidebarRight div.Statistics h2{
+    width:195px;
+	height:32px;
+	margin:0;
+    color:white;
+    text-shadow:1px 1px black;
+    font-style: italic;
+	background:url(../Image/OnlineMenu.png) no-repeat;
+    font-size:24px;
+    font-weight:lighter;
+    line-height:32px;  
+    text-align: center;
+}
+
+div#SidebarRight div.Advertisment{
+    margin:20px 0 0 0;
+    position: relative;
+}
+div#SidebarRight div.Advertisment img{
+    margin: 5px 0 0 0;
+}
+div#SidebarRight div.Advertisment img.fixed_right{
+    position: fixed;
+    top:260px;
+    right:20px;
+}
+div#Container div.AdvBot{
+    width:100%;
+    clear: both;
+    margin: 20px 0 0 0;
+}
+#Footer{
+	clear:both;
+	width:100%;
+	text-align:center;
+    padding:30px 0 0 0;
+}
+
+#Footer p.Copyright a{
+	color:#000000;
+	text-decoration:none;
+	font-style:italic;
+	font-size:16px;
+}
+#Footer p.Copyright a:hover{
+	color:#999999;
+}
+#Footer p.MenuBoth{
+	margin:15px 0 0 0;
+	display:block;
+	width:100%;
+	height:26px;
+	background:url(../Image/FooterMenu.png);
+	line-height:26px;
+	color:#FFFFFF;
+}
+#Footer p.MenuBoth a{
+	color:#FFFFFF;
+	margin:0 20px;
+	font-size:16px;
+	text-decoration:none;
+}
+#Footer p.MenuBoth a:hover{
+	text-decoration:underline;
+}

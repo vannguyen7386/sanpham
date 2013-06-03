@@ -1,0 +1,454 @@
+/* CSS Document */
+/** RESET CSS **/
+html, body, div, span, applet, object, iframe,
+p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+u, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+caption, tbody, tfoot, thead,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 62.5%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+body{
+    font-family:"Times New Roman", Times, serif;
+	background: url(../Image/Background.png) no-repeat -10px 0;
+    background-attachment: fixed;
+}
+#Wrapper{
+	width:1020px;
+	height:auto;
+	font-family:"Times New Roman", Times, serif;
+	margin:0 auto;
+}
+.red{
+    color:red;
+}
+/*Header*/
+#Header{
+	width:100%;
+    margin:0;
+}
+#Header #Banner{
+	width:100%;
+	height:150px;
+    position: relative;
+}
+#Header #Banner p.Text_banner{
+    position: absolute;
+    top:124px;
+    right:20px;
+    color:white;
+}
+#Header #Banner p.Text_banner a{
+    color:white;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 0 5px;
+}
+#Header #Banner p.Text_banner a:hover{
+    color:#025A8D;
+}
+#Header div#Banner h2.Logo{
+    width:415px;
+    height:52px;
+    position: absolute;
+    background: url(../Image/Logo.png) no-repeat;
+    top:45px;
+    left: 55px;
+}
+#Header div#Navi_bar{
+    width: 100%;
+    height:33px;
+    background:url(../Image/Navigate.png) no-repeat;
+    line-height: 33px;
+    text-align: center;
+    margin:0;
+}
+#Header div#Navi_bar a{
+    color:white;
+    text-shadow:1px 1px  #999999;
+    font-size:16px;
+    font-family:Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    padding:0 15px;
+}
+#Header div#Navi_bar ul{
+    list-style:none;
+    margin-left:100px;
+}
+#Header div#Navi_bar ul li{
+    float:left;
+}
+#Header div#Navi_bar ul li.submenu{
+    position: relative;
+}
+#Header div#Navi_bar ul li.submenu ul{
+    position: absolute;
+    width:150px;
+    background: orange;
+    top:33px;  
+    display:none; 
+    left:-100px;
+}
+
+#Header div#Navi_bar ul li.submenu ul li{
+    clear: both;
+}
+#Header div#Navi_bar ul li.submenu:hover ul{
+    display:block;
+}
+#Header div#Navi_bar ul li.submenu ul li a:hover{
+    color:black;
+    text-shadow:none;
+}
+#Header div#Navi_bar a:hover{
+    color:#494949;
+    text-shadow:1px 1px  white;
+}
+div#Container{
+    width:1002px;
+    background:white;
+    margin:0;
+    border:1px solid white;
+    padding:10px 10px 50px 0;
+    -moz-border-radius:0 0 10px 10px;
+    overflow: hidden;
+}
+div#Container h2.Welcome{
+    color: #025A8d;
+    font-size:40px; 
+    margin:20px 30px;  
+}
+div#Container div.Menu{
+    width:980px;
+    border:1px solid #999999;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    color:#494949;
+    padding:10px 10px 10px 15px;
+    position: relative;
+    margin:0 auto;
+}
+div#Container div.Menu div.Search{
+    position: relative;
+}
+div#Container div.Menu div.Search form{
+    position: absolute;
+    top:-40px;
+    
+}
+div#Container div.Menu div.Edit{
+    width:600px;
+    margin:0 auto;
+}
+div#Container div.Menu div.Edit form{
+    padding:20px;
+}
+div#Container div.Menu div.Edit form p{
+    line-height: 30px;
+    border-bottom: 1px dashed #CCCCCC;
+    padding:2.5px 0;
+}
+div#Container div.Menu form p{
+    line-height: 30px;
+}
+div#Container div.Menu div.Edit form p input.Text,
+div#Container div.Menu div.Edit form p select{
+    margin:0 0 0 100px;
+}
+div#Container div.Menu div.Edit form p span{
+    padding: 0 0 0 100px;
+}
+input.Text{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    color:#494949;
+    padding:2px;  
+    border:1px solid #CCCCCC;
+    width:200px;
+}
+div#Container div.Menu div.Edit input.Text{
+    width:330px;
+    height:20px;
+}
+div.Search img.SearchIcon{
+    position: absolute;
+    top:-2px;
+    left:210px;
+}
+div#Container div.Menu table tr.first{
+    color:white;
+    font-weight:bold;
+    background: blue;
+    height:25px;
+    line-height: 25px;
+}
+div#Container div.Menu table tr.second td{
+    height: 20px;
+    border:1px solid #CCCCCC;
+    border-top:none;
+}
+div#Container div.Menu table tr.second td span.star{
+    font-weight:bold;
+    display:block;
+    background:url(../Image/Star.png) no-repeat;
+    padding:7px 0;
+    width:27px;
+    height:26px;
+    margin-top:6px;
+}
+.black{
+    color:black;
+}
+div#Container div.Menu table tr.second td a{
+    text-decoration: none;
+}
+div#Container div.Menu table tr.second td a:hover{
+    color:#2BD23B;
+    
+}
+div#Container  div.Navi{
+    width:960px;
+	height:29px;
+	background:url(../../Image/Navi.png) repeat-x;
+	line-height:29px;
+	text-align:center;
+}
+div#Container  div.Navi a{
+	padding:0 30px 0 0;
+	color:#f8f4f4;
+	font-size:17px;
+	text-decoration:none;
+	font-style:italic;
+	font-weight:bold;
+    font-family:"Times New Roman", Times, serif;
+}
+div#Container div.Menubot{
+    margin:15px 0 0 0;
+	display:block;
+	width:960px;
+	height:26px;
+	background:url(../../Image/FooterMenu.png);
+	line-height:26px;
+	color:#FFFFFF;
+    text-align: center;
+}
+div#Container div.Menubot a{
+	color:#FFFFFF;
+	margin:0 20px;
+	font-size:16px;
+	text-decoration:none;
+    font-family:"Times New Roman", Times, serif;
+}
+input.BtnSubmit{
+    width:60px;
+    height:25px;
+    background:url(../Image/Button.png) repeat-x;  
+    color: white; 
+    text-shadow:1px 1px black; 
+    line-height: 25px;
+    margin:0 0 0 10px;
+}
+input.BtnSubmit:hover{
+    background:url(../Image/Button_hover.png) repeat-x;
+}
+div.Add_Del{
+    margin:20px 0;
+    text-align: right;
+}
+div.Add_Del a.Add{
+    padding:7px;
+    background: url(../Image/Order2.png) repeat-x;
+    margin:0 15px;
+    border:1px solid red;
+    color:white;
+    font-weight: bold;
+    text-decoration: none;
+}
+div.Add_Del a.Delete{
+    padding:7px;
+    background: url(../Image/ButtonLarge.png) repeat-x;
+    margin:0 0 0 10px;
+    border:1px solid #c3c11c;
+    color:white;
+    font-weight: bold;
+    text-decoration: none;   
+}
+div.Add_Del a.Plus{
+    padding:7px;
+    background: url(../Image/Button2.png) repeat-x;
+    margin:0 0 0 50px;
+    border:1px solid #20b639;
+    color:white;
+    font-weight: bold;
+    text-decoration: none;   
+}
+div.Add_Del a:hover{
+    background: url(../Image/Order2_hover.png) repeat-x;  
+     border:1px solid aqua;  
+}
+
+div#Container div.Icon{
+    width:700px;
+    margin: 75px auto;
+    padding:10px 0 20px 0;
+    border:1px double #CCCCCC;
+    overflow: hidden;
+    -moz-border-radius:10px;
+}
+div#Container div.Icon a{
+    display: block;
+    float:left;
+    margin:40px 40px 40px 60px;
+    position: relative;
+    color:blue;
+    text-decoration: none;
+}
+div#Container div.Icon a span{
+    width:80px;
+    position: absolute;
+    top:70px;
+    left:8px;   
+}
+div#Container div.Icon a:hover{
+    color:#025A8d;    
+}
+div#Container div.Login{
+    width:400px;
+    margin: 100px auto;
+    text-align: center;
+    padding:0 0 20px 0;
+    border:1px ridge #999999;
+    border-top:none;
+    -moz-border-radius:7px;
+    border-left:1px solid #CCCCCD; 
+    
+}
+div#Container div.Login h2{
+    margin:0 0 20px 0;
+    background:url(../Image/Login.png);
+    width:400px;
+    height:26px;
+    font-size:20px;
+    color:white;
+    text-shadow:1px 1px black;
+}
+div.Display{
+    text-align: right;
+}
+div#Pagging{
+    text-align: center;
+    margin: 0 0 20px 0;
+    clear: both;  
+}
+div#Pagging a{
+    padding:3px 7px;
+    border:1px solid #878787;
+    margin:0 7px 0 0;
+    font-weight:bold;
+    background:url(../Image/PagLink.png) repeat-x;
+    color:white;
+    text-decoration: none;
+    text-shadow:1px 1px black;
+}
+div#Pagging span{
+    padding:3px 7px;
+    border:1px solid #20c020;
+    margin:0 7px 0 0;
+    font-weight:bold;
+    background:url(../Image/PagLink_Hover.png) repeat-x;
+    color:white;   
+    text-shadow:1px 1px black; 
+}
+
+div#Pagging a:hover{
+    border:1px solid #20c020;
+    background:url(../Image/PagLink_Hover.png) repeat-x;
+    text-decoration: underline;
+    text-shadow:1px 1px black;
+}
+select.Select{
+    padding:2px;
+    border:1px solid #CCCCCC;
+    font-family: arial;
+    font-size: 12px;
+    color:#494949;
+    margin:0 0 20px 0;
+}
+div#Container div.Login p input.Text{
+    border:1px solid #494949;
+    margin:0 0 0 15px;
+    height:15px;
+    padding:2px;
+    width:200px;
+    color:#494949;
+    font-family: arial;
+    font-size: 12px;
+}
+p textarea.Text{
+    border:1px solid #cccccc; 
+    color:#494949;
+    font-family: arial;
+    font-size: 12px;
+    width:450px;
+}
+div#Container div.Login p input.TextSubmit{
+    display:block;
+    width:60px;
+    height:25px;
+    background:url(../Image/Button.png) repeat-x;  
+    color: white; 
+    text-shadow:1px 1px black; 
+    line-height: 25px;
+    margin:0 auto;
+}
+
+div.CheckAll{
+    text-align: right; 
+    margin:10px 10px 30px 0;  
+}
+div.CheckAll input{
+    width:60px;
+    height:25px;
+    background:url(../Image/Button.png) repeat-x;  
+    color: white; 
+    text-shadow:1px 1px black; 
+    line-height: 25px;   
+}
+div.CheckAll input:hover{
+    background:url(../Image/Button_hover.png) repeat-x;  
+}
+div#Container div.Login p input.TextSubmit:hover{
+    background:url(../Image/Button_hover.png) repeat-x; 
+}
+div#Container div.Login p{
+    font-family: arial;
+    font-size: 14px;
+    line-height: 40px;
+}
+
+div#Footer{
+    width:100%;
+    height:150px;    
+}
+div#Footer p.Copyright{
+    text-align: center;
+    color:white;
+    font-size:17px;
+    margin-top: 20px;
+}
+div#Footer p.Copyright a{
+    color:white;
+}
