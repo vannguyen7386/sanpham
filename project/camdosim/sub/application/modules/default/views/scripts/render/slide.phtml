@@ -1,0 +1,17 @@
+<?php
+$slide = $this->slide;
+?>
+<div class="warning">
+    <p>Tất cả các ảnh slide nên fix size : 540px - 300px</p>
+</div>
+<div class="block-body gallery">
+    <?php foreach ($slide as $s): ?>
+    <a href="javascript:;" onclick="show_dialog('Chỉnh sửa slide','' ,'<?php echo SUB_URL; ?>/default/setting/editslide?ID=<?php echo $s['ID']?>');">
+            <img title="540px - 300px" width="200" src="<?php echo BASE_URL . "/public/style/images/slide/" . $s['image'] ?>" class="img-polaroid">
+        </a>
+    <?php endforeach; ?>
+    
+    <div class="clearfix"></div>
+    <button style="margin: 15px 0 0 0" type="button" onclick="show_dialog('Thêm slide','' ,'<?php echo SUB_URL; ?>/default/setting/addslide');" class="btn btn-primary">
+        <i class="icon-save"></i> Thêm mới</button>
+</div>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <?php echo $this->headTitle(); ?>
+        
+        <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/style/css/layout.css" />
+        <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/style/css/block.css" />
+        <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/style/css/jquery-ui.css" />
+        <link rel="stylesheet" href="<?php echo BASE_URL ?>/public/style/css/slide.css" />
+        <script type="text/javascript" src="<?php echo BASE_URL . '/public/style/js/jquery-1.7.2.js' ?>"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL . '/public/style/js/script.js' ?>"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL . '/public/style/js/plugin.js' ?>"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL . '/public/style/js/component.js' ?>"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL ?>/public/style/js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL ?>/public/style/js/jquery.livequery.min.js"></script>
+        <script type="text/javascript" src="http://vnexpress.net/Service/Gold_Content.js"></script>
+        <script type="text/javascript" src="http://vnexpress.net/Service/Forex_Content.js"></script>
+        <script type="text/javascript" src="<?php echo BASE_URL . '/public/style/js/slide.js' ?>"></script>
+        <script type="text/javascript"
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSxPygO4ci1pr7_jvXkbmUu9G0J3lJk8Q&sensor=false">
+        </script>
+   
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+
+    </head>
+   
+    <body>
+        
+        <div id="wrap">
+            <header>
+                <section class="header-top">
+                    <div class="search-form">
+                        <form action="#" method="post">
+                            <input type="text" name="search_value" />
+                            <input type="submit" value=""/>
+                        </form>
+                    </div>			
+                </section>
+            </header>
+            
+            <section id="intro">
+                <img class="banner" src="<?php echo BASE_URL . "/upload/banner/" . $this->Banner(); ?>"/>
+            </section><!--Banner - Slide-->
+
+            <nav id="main">
+                <a prefix="default" href="<?php echo BASE_URL ?>" onclick="call_ajax_load_content(this, 'Trang chủ'); return false;" class="active">Trang chủ</a>
+                <a prefix="about" href="about/index/" onclick="call_ajax_load_content(this, 'Giới thiệu'); return false;">Giới thiệu</a>
+                <a prefix="service" href="service/index" onclick="call_ajax_load_content(this, 'Dịch vụ'); return false;">Dịch vụ</a>
+                <a prefix="news" href="news/index" onclick="call_ajax_load_content(this, 'Tin tức'); return false;">Tin tức</a>
+                <a href="#">Khuyến mãi</a>
+                <a prefix="contact" href="contact/index" onclick="call_ajax_load_content(this, 'Liên hệ'); return false;">Liên hệ</a>
+                <a href="#">Trợ giúp</a>
+            </nav><!--Menu-->
+
+            <section id="content"><!-- Three Column-->
+                <aside id="left">
+                    <?php $this->News(); ?>
+
+                    <?php $this->GoldPrice(); ?>
+
+                    <?php $this->Exchange(); ?>
+
+                    <?php $this->Statistic(); ?>
+                </aside>
+                <section id="main-content">
+                    <?php echo $this->layout()->content; ?>
+                </section>
+                <aside id="right">
+                    <?php $this->GoogleMap() ?>
+
+                    <?php $this->Facebook() ?>
+                    
+                    <?php $this->Support(); ?>
+                </aside>	
+            </section>
+
+            <footer>
+                <p>Cửa hàng cầm đồ sim - 81 Nghĩa Dũng / Phúc Xá / Hà Nội </p>
+                <p>Điện thoại hỗ trợ: </p>
+                <p>Email: thien_binh1102@yahoo.com </p>
+                <p>05/2013</p>
+            </footer>
+        </div>
+
+    </body>
+</html>
+

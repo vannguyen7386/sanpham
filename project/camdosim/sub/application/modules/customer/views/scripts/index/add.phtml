@@ -1,0 +1,95 @@
+<?php
+$cus_type = $this->cus_info_type;
+$banks = $this->banks;
+$code = $this->code;
+$options = "";
+foreach ($banks as $b) {
+    $options .= "<option value='{$b['ID']}'>{$b['title']}</option>";
+}
+?>
+<div class="header">
+    <h1 class="page-title">Thêm mới khách hàng</h1>
+</div>
+
+<ul class="breadcrumb">
+    <li><a href="<?php echo SUB_URL ?>" >Trang chủ</a> <span class="divider">/</span></li>
+    <li><a href="customer/index" onclick="call_ajax_load_content(this, 'Khách hàng');
+            return false;" >Khách hàng</a> <span class="divider">/</span></li>
+    <li class="active">Thêm mới</li>
+</ul>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <form class="ajax-form" action="<?php echo SUB_URL ?>/customer/index/add" method="post">
+            <div class="section">Thông tin chung</div>
+            <label>Mã Khách hàng</label>
+            <input type="text" name="code" class="input-xlarge" readonly="readonly" value="<?php echo $code ?>"/>
+            <label>Tên khách hàng <span class="required">*</span></label>
+            <input type="text" name="name" class="input-xlarge" value=""/>
+            <label>Email <span class="required">*</span></label>
+            <input type="text" name="email" class="input-xlarge" value=""/>
+            <label>Điện thoại </label>
+            <input type="text" name="phone" class="input-xlarge" value=""/>
+            <label>Địa chỉ </label>
+            <input type="text" name="address" class="input-xlarge" value=""/>
+            <?php $id = uniqid();
+            $id2 = uniqid();
+            ?>
+            <div class="account" id="<?php echo $id ?>">
+                <div>
+                    <label>Tài khoản</label>
+                    <input type="text" value="" placeholder="Số tài khoản" name="account_number[]" class="input-small bank-account"/>
+                    <select name="bank_id[]" class="input-medium">
+                        <option>Chọn ngân hàng</option>
+<?php echo $options ?>
+                    </select>
+                    <input type="text" value="" placeholder="Chi nhánh" name="bank_branch[]" class="input-small"/>   
+                </div>
+            </div>
+
+            <a href="javascript:;" id="<?php echo $id ?>_add" class="add_more"><img alt="Thêm liên hệ" title="Thêm liên hệ" src="<?php echo SUB_URL ?>/public/style/images/Add.png" width="20"/></a>
+            <a href="javascript:;" id="<?php echo $id ?>_remove" class="remove">
+                <img alt="Xóa liên hệ" title="Xóa liên hệ" src="<?php echo SUB_URL ?>/public/style/images/Minus.png" width="20"/>
+            </a>
+            <div class="section">Thông tin khác</div>
+<?php foreach ($cus_type as $c): ?>
+                <div class="item">
+                    <label><?php echo ucfirst($c['title']) ?></label>
+                    <input type="text" name="<?php echo $c['alias'] ?>" value="" class="input-xlarge"/>
+                </div>
+<?php endforeach; ?>
+            <button type="submit" class="btn btn-primary"><i class="icon-save"> Thêm mới</i></button>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+        (function($) {
+            $(document).ready(function() {
+                var remove = $('.remove');
+                var count = $('input.bank-account').length;
+                if (count == 1) {
+                    $('#<?php echo $id ?>_remove').hide();
+                }
+                $('#<?php echo $id ?>_add').click(function() {
+                    var content = '<div><input type="text" value="" placeholder="Số tài khoản" name="account_number[]" class="input-small bank-account"/>&nbsp;'
+                            + '<select name="bank_id[]" class="input-medium">'
+                            + '<option>Chọn ngân hàng</option>'
+                            + <?php echo json_encode($options) ?>
+                    + '</select>&nbsp;'
+                            + '<input type="text" value="" placeholder="Chi nhánh" name="bank_branch[]" class="input-small"/></div>';
+                    $('#<?php echo $id ?>').append(content);
+                    $(remove).css('display', 'inline');
+                });
+
+                $('.remove').click(function() {
+                    var remove_panel = $(this).prev().prev().find('div').last();
+                    $(remove_panel).remove();
+                    if($('input.bank-account').length == 1){
+                        $(this).hide();  
+                    }
+                    return false;
+                });
+            });
+
+        })(jQuery);
+</script>

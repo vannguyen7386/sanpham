@@ -1,0 +1,53 @@
+<script type="text/javascript">
+    $(function() {
+        $("#tabs").tabs({active:<?php echo get('tab',0) ?>});
+        upload_img("myfile","show_img","show_path");
+        upload_img('slide_file','show_slide', 'show_slide_path');
+        upload_img("banner_file", "banner_show", "banner_path");
+    });
+</script>
+<?php
+if ($this->success):
+    ?>
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong><?php echo $this->success; ?></strong> 
+    </div>
+<?php endif; ?>
+<?php
+if ($this->error):
+    ?>
+<div class="alert alert-error">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+        <?php echo $this->error?>
+</div>
+<?php endif;?>
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">Cấu hình chung</a></li>
+        <li><a href="#tabs-2">Slide</a></li>
+        <li><a href="#tabs-3">Nhóm dịch vụ</a></li>
+        <li><a href="#tabs-4">Nhóm tin tức</a></li>
+        <li><a href="#tabs-5">Banner</a></li>
+        <li><a href="#tabs-6">Ngân hàng</a></li>
+    </ul>
+    <div id="tabs-1">
+        <?php echo $this->render("render/general.phtml") ?>
+    </div>
+    <div id="tabs-2">
+        <?php echo $this->render("render/slide.phtml") ?>
+    </div>
+    <div id="tabs-3">
+        <?php echo $this->render("render/service.phtml") ?>
+    </div>
+    <div id="tabs-4">
+        <?php echo $this->render("render/news.phtml") ?>
+    </div>
+    <div id="tabs-5">
+        <?php echo $this->render("render/banner.phtml") ?>
+    </div>
+    <div id="tabs-6">
+        <?php echo $this->render("render/banks.phtml") ?>
+    </div>
+
+</div>

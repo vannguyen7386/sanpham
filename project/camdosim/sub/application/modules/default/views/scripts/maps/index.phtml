@@ -1,0 +1,16 @@
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSxPygO4ci1pr7_jvXkbmUu9G0J3lJk8Q&sensor=false">
+</script>
+<?php 
+    $lat = $this->lat;
+    $lng = $this->lng;
+?>
+<script type="text/javascript">
+    
+    (function($) {
+        $(document).ready(function() {
+            $(window).bind('load', load_google_map_wide(<?php echo $lat;?>, <?php echo $lng;?>));
+        });
+    })(jQuery);
+</script>
+<div id="map-outer"></div>

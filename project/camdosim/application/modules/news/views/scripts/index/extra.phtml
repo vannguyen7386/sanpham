@@ -1,0 +1,30 @@
+
+<?php
+$count = $this->count;
+$start = $this->start;
+$news = $this->news;
+$row_per_page = $this->row_per_page;
+?>
+
+<?php foreach ($news as $s) : ?>
+        <article>
+            <header>
+                <h2><a href="news/index/view?ID=<?php echo $s['ID'] ?>"><?php echo $s['title'] ?></a></h2>
+                <p class="sub"><?php echo date('H:i:s - d/m/Y', strtotime($s['date_created']))?></p>
+            </header>
+            <section>
+                <div class="thumb">
+                    <div>
+                        <img src="<?php echo BASE_URL ?>/upload/news/<?php echo $s['thumb'] ?>" 
+                     onclick="call_ajax_load_content(this,'Tin tức - <?php echo $s['title']?>','news/index/view?ID=<?php echo $s['ID'] ?>'); return false;" 
+                     alt="<?php echo $s['title']?>" title="<?php echo $s['title']?>"/>
+                    </div>
+                </div>
+                <p><?php echo short_title($s['summary'], 250) ?></p>
+            </section>
+        </article>
+<?php endforeach; ?>
+
+<?php if ($start + $row_per_page < $count): ?>
+    <a class="load_extra" href="javascript:;" onclick="call_extra_content(baseURL + '/news/index/index?start=<?php echo $start + $row_per_page ?>', '.home-content');$(this).remove()">Hiển thị thêm</a>
+<?php endif; ?>

@@ -1,0 +1,28 @@
+
+<?php
+$count = $this->count;
+$start = $this->start;
+$news = $this->news;
+$row_per_page = $this->row_per_page;
+?>
+
+<?php foreach ($news as $s) : ?>
+        <article>
+            <header>
+                <h2><a href="news/index/view?ID=<?php echo $s['ID'] ?>"><?php echo $s['title'] ?></a></h2>
+                <p class="sub">Tạo lúc: <?php echo date('H:i:s - d/m/Y', strtotime($s['date_created']))?> - Bởi: <span class="red">Admin</span>
+                        <?php if ($s['date_updated']):?>
+                        Cập nhật: <?php echo date('H:i:s - d/m/Y', strtotime($s['date_updated']))?> - Bởi: <span class="red">Admin</span>
+                        <?php endif;?>
+                </p>
+            </header>
+            <section>
+                <img src="<?php echo BASE_URL ?>/upload/news/thumbs/<?php echo $s['thumb'] ?>" class="thumb" alt=""/>
+                <p><?php echo short_title($s['content'], 250) ?></p>
+            </section>
+        </article>
+<?php endforeach; ?>
+
+<?php if ($start + $row_per_page < $count): ?>
+    <a class="load_extra" href="javascript:;" onclick="call_extra_content(baseURL + '/news/index/index?start=<?php echo $start + $row_per_page ?>', '.home-content');$(this).remove()">Hiển thị thêm</a>
+<?php endif; ?>

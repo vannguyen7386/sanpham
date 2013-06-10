@@ -1,0 +1,26 @@
+<?php 
+    $service = $this->service;
+?>
+<ul class="breadcrumb">
+    <li><a href="<?php echo BASE_URL ?>" onclick="call_ajax_load_content(this, 'Trang chủ');
+            return false;">Trang chủ</a> >> </li>
+    <li><a href="service/index/index" onclick="call_ajax_load_content(this, 'Dịch vụ');
+            return false;">Dịch vụ</a> >> </li>
+    <li><?php echo $service['title']?></li>
+</ul>
+<article class="single">
+    <header><h2><?php echo $service['title']?></h2></header>
+    <section>
+        <?php echo $service['desc']?>
+    </section>
+</article>
+<section class="other">
+    <?php $others = $this->others;?>
+    <header><h3>Cùng nhóm dịch vụ</h3></header>
+    <?php foreach ($others as $o):?>
+    <div>
+        <p>&squarf; <a title="<?php echo $o['title']?>" onclick="call_ajax_load_content(this,'Dịch vụ - <?php echo $o['title']?>');  return false;" href="service/index/view?ID=<?php echo $o['ID'] ?>"><?php echo $o['title'] ?></a>
+        </p>
+    </div>
+    <?php endforeach;?>
+</section>

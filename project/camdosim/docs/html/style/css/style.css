@@ -1,0 +1,139 @@
+/**RESET CSS**/
+*{margin:0; padding:0}
+div{display: block; overflow:hidden}
+a, img, table {border:none}
+ul, ol {list-style: none}
+body {
+	font: 12px/17px Arial, Helvetica, sans-serif;
+}
+#wrap{
+	width:981px;
+	margin: 0 auto;
+	border:2px solid lightblue;
+	border-top:none;
+	box-shadow: 5px 5px 5px #ddd;
+	min-height:1000px;
+}
+
+header section.header-top {
+	width:100%;
+	height:47px;
+	background: url(../images/top-header.png) repeat-x;
+	position: relative;
+}
+
+div.search-form{
+	width: 353px;
+	height:41px;
+	background: url(../images/search-form.png) no-repeat top left;
+	position:absolute;
+	top:14px;
+	right:0;
+}
+
+.search-form input[type=submit]{
+	width: 33px;
+	height: 23px;
+	cursor: pointer;
+	top: 8px;
+	right: 11px;
+	position: absolute;
+	border:none;
+	background: transparent;
+}
+
+.search-form input[type=text]{
+	width: 194px;
+	padding:0 2px;
+	top: 11px;
+	right: 52px;
+	position: absolute;
+	border:none;
+	background: transparent;
+	color: #4d4d4d;
+	font-size:11px;
+	line-height:18px;
+}
+
+#intro {
+	width:100%;
+	height:150px;
+	background: #ccc;
+}
+
+nav#main{
+	width: 100%;
+	height: 30px;
+	background: url(../images/menu.png) 0 0 repeat-x;
+	overflow:hidden;
+	line-height: 30px;
+}
+
+#main a{
+	padding: 0 48px;
+	color:#fff;
+	font-weight:bold;
+	text-align:center;
+	float:left;
+	text-decoration:none;
+	margin:0;
+	border-right:1px solid #7a7a7a;
+	border-left:1px solid #272727;
+}
+
+#main a:hover, #main a:active{
+	background: url(../images/menu.png) 0 -32px repeat-x;
+}
+
+section#content {
+	margin-top:10px;
+	overflow:hidden;
+}
+aside#left {
+	width: 208px;
+	height:auto;
+	float:left;
+	background: url(../images/sidebar-left.jpg) repeat-y;
+}
+
+aside#left section.item header  h2{
+	color: #fff;
+	background: url(../images/sidebar.png) repeat-y;
+	width:208px;
+	height:29px;
+	font-size: 18px;
+	line-height:29px;
+	text-align:center;
+}
+
+aside#right section.item header h2 {
+	color: #fff;
+	background: url(../images/sidebar-right.png) repeat-y;
+	width:208px;
+	height:29px;
+	font-size: 18px;
+	line-height:29px;
+	text-align:center;
+}
+
+section#main-content {
+	width:540px;
+	float:left;
+	padding:0 10px;	
+}
+
+aside#right {
+	width: 208px;
+	height:auto;
+	float:right;
+	background: url(../images/sidebar-right.jpg) repeat-y;
+}
+
+footer {
+	clear:both;
+	margin: 20px 0;
+	min-height:150px;
+	background: url(../images/footer.jpg) #000 repeat-x;
+	padding-top: 25px;
+	color: #fff;
+}

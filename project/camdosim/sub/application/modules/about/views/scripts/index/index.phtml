@@ -1,0 +1,41 @@
+<div class="header">
+    <h1 class="page-title">Giới thiệu</h1>
+</div>
+
+<ul class="breadcrumb">
+    <li><a href="<?php echo SUB_URL ?>" >Trang chủ</a> <span class="divider">/</span></li>
+    <li class="active">Giới thiệu</li>
+</ul>
+
+<?php
+$about = $this->about;
+if ($this->success):
+    ?>
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong><?php echo $this->success; ?></strong> 
+    </div>
+<?php endif; ?>
+<?php
+if ($this->error):
+    ?>
+    <div class="alert alert-error">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <?php echo $this->error ?>
+    </div>
+<?php endif; ?>
+
+<div class="container-fluid">
+    <form class="ajax-form" action="<?php echo SUB_URL ?>/about/index" method="post">
+        <textarea name="desc"><?php echo $about['desc'] ?></textarea>
+        <div style="margin-top: 15px">
+            <button type="submit" class="btn btn-primary"><i class="icon-save"></i> Cập nhật</button>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    var editor = CKEDITOR.replace('desc',{
+        height: 400
+    });
+    CKFinder.setupCKEditor( editor, baseURL + '/public/style/ckeditor/ckfinder/' );
+</script>

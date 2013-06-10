@@ -1,0 +1,20 @@
+
+<form class="slide" action="<?php echo SUB_URL ?>/default/setting/addslide" method="post" enctype="multipart/form-data">
+    <div class="form-content">
+        <label>Tiêu đề</label>
+        <input type="text" value="" name="title" class="input-xlarge"/>
+        <label>Tóm tắt</label>
+        <input type="text" value="" name="summary" class="input-xlarge"/>
+        <label>Link đến bài viết</label>
+        <input type="text" value="" name="link" class="input-xlarge"/>
+        <label>Kích hoạt 
+            <input type="checkbox" value="1" name="active" /></label>
+        <input type="file" name="file" id="slide_file" />
+        <button type="submit" class="btn btn-primary"><i class="icon-save"></i> Cập nhật</button>
+    </div>
+    <div class="img-content">
+        <img class="img-polaroid" src="" id="show_slide" name="myfile" width="120"/>
+    </div>    
+</form>
+
+

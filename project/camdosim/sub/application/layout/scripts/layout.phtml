@@ -1,0 +1,111 @@
+<?php isLogin() ?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Admin</title>
+
+        <link href="<?php echo SUB_URL ?>/public/style/css/layout.css" type="text/css" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo SUB_URL ?>/public/style/css/theme.css"/>
+        <link href="<?php echo SUB_URL ?>/public/style/css/awsome.css" rel="stylesheet">
+        <link rel="stylesheet" href="<?php echo SUB_URL ?>/public/style/css/jquery-ui.css" />
+        <link rel="stylesheet" href="<?php echo SUB_URL ?>/public/style/css/owl.css" />
+        <link rel="stylesheet" href="<?php echo SUB_URL ?>/public/style/css/bootstraps.css" />
+        <script type="text/javascript" src="<?php echo SUB_URL . '/public/style/js/jquery-1.7.2.js' ?>"></script>
+        <script type="text/javascript" src="<?php echo SUB_URL . '/public/style/js/script.js' ?>"></script>
+        <script type="text/javascript" src="<?php echo SUB_URL . '/public/style/js/plugin.js' ?>"></script>
+        <script type="text/javascript" src="<?php echo SUB_URL . '/public/style/js/component.js' ?>"></script>
+        <script type="text/javascript" src="<?php echo SUB_URL ?>/public/style/js/jquery-ui.js"></script>
+        <script type="text/javascript" src="<?php echo SUB_URL ?>/public/style/js/jquery.livequery.min.js"></script>
+        <script type="text/javascript" src="<?php echo SUB_URL ?>/public/style/ckeditor/ckeditor.js"></script>
+        <script type="text/javascript" src="<?php echo SUB_URL ?>/public/style/ckeditor/ckfinder/ckfinder.js"></script>
+        <!-- Demo page code -->
+
+    </head>
+
+    <body > 
+
+        <div class="navbar">
+            <div class="navbar-inner">
+                <ul class="nav pull-right">
+                    <li><a href="default/setting" onclick="call_ajax_load_content(this, 'Cấu hình');
+                            return false;">Cấu hình</a></li>
+                    <li id="fat-menu" class="dropdown">
+                        <a href="#" role="button" class="dropdown-toggle">
+                            <i class="icon-user"></i> <?php echo ucfirst(NV_User::getUsername()) ?>
+                            <i class="icon-caaret-down"></i>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a tabindex="-1" href="#">Tài khoản</a></li>
+                            <li class="divider"></li>
+                            <li><a tabindex="-1" href="<?php echo SUB_URL ?>/logout">Thoát</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <a class="brand" href="<?php echo BASE_URL ?>"><span class="first">Admin Panel</span> <span class="second">Camdosim.vn</span></a>
+            </div>
+        </div>
+
+        <div class="sidebar-nav">
+            <a href="<?php echo SUB_URL ?>" class="nav-header" data-toggle="collapse">
+                <i class="icon-dashboard"></i>Trang chủ</a>
+
+            <a href="about/index" onclick="call_ajax_load_content(this, 'Giới thiệu');
+                            return false;" class="nav-header" data-toggle="collapse">
+                <i class="icon-briefcase"></i>Giới thiệu</a>
+
+            <a href="service/index" onclick="call_ajax_load_content(this, 'Dịch vụ');
+                            return false;" class="nav-header" data-toggle="collapse">
+                <i class="icon-exclamation-sign"></i>Dịch vụ </i></a>
+            <ul id="error-menu" class="nav nav-list collapse in">
+                <li ><a href="403.html">Nhóm 1</a></li>
+                <li ><a href="404.html">Nhóm 2</a></li>
+                <li ><a href="500.html">Nhóm 3</a></li>
+                <li ><a href="503.html">Nhóm 4</a></li>
+            </ul>
+
+            <a href="news/index" onclick="call_ajax_load_content(this, 'Tin tức');
+                            return false;" class="nav-header" data-toggle="collapse">
+                <i class="icon-exclamation-sign"></i>Tin tức </i></a>
+            <ul id="error-menu" class="nav nav-list collapse in">
+                <li ><a href="403.html">Nhóm 1</a></li>
+                <li ><a href="404.html">Nhóm 2</a></li>
+                <li ><a href="500.html">Nhóm 3</a></li>
+                <li ><a href="503.html">Nhóm 4</a></li>
+            </ul>
+
+            <a href="customer/index" onclick="call_ajax_load_content(this,'Khách hàng'); return false;" 
+               class="nav-header" ><i class="icon-question-sign"></i>Khách hàng</a>
+            <a href="contact/index" onclick="call_ajax_load_content(this, 'Liên hệ');
+                            return false;" 
+               class="nav-header" ><i class="icon-comment"></i>Liên hệ</a>
+        </div>
+        <div class="content" id="main-content">
+            <?php echo $this->layout()->content; ?>
+        </div>
+
+    </body>
+</html>
+<script type="text/javascript">
+    (function($) {
+        $(document).ready(function() {
+            $('.close').livequery('click', function() {
+                $(this).parent('.alert').remove();
+            });
+            $('.dropdown-toggle').click(function() {
+                $('ul.dropdown-menu').toggle(200);
+            });
+            $('body').children().click(function(e) {
+                var x = e.currentTarget;
+                if (!($(x).prop('className').toString() == 'navbar')) {
+                    $('ul.dropdown-menu').slideUp(200);
+                }
+            });
+
+        });
+    })(jQuery);
+</script>
+
+

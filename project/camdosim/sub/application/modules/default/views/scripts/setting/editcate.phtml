@@ -1,0 +1,13 @@
+<?php $p = $this->post?>
+<form action="<?php echo SUB_URL?>/default/setting/editcate?type=<?php echo get('type')?>" method="post">
+    <label>Tiêu đề</label>
+    <input type="text" name="title" value="<?php echo $p['title']?>" class="input-xlarge"/><br/>
+    <input type="hidden" name="ID" value="<?php echo $p['ID']?>"/>
+    <?php if(get('type') == 'banks'): ?>
+    <label>Kí hiệu</label>
+    <input type="text" name="alias" value="<?php echo $p['alias']?>" class="input-xlarge"/><br/>
+    <label>Mô tả</label>
+    <input type="text" name="desc" value="<?php echo $p['desc']?>" class="input-xlarge"/><br/>
+    <?php endif; ?>
+    <button type="submit" class="btn btn-primary"><i class="icon-save"></i>Sửa</button>
+</form>

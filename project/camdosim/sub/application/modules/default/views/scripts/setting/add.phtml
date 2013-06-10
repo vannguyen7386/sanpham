@@ -1,0 +1,12 @@
+
+<form action="<?php echo SUB_URL ?>/default/setting/add?type=<?php echo get('type')?>" method="post">
+    <label>Tiêu đề</label>
+    <input type="text" name="title" class="input-xlarge"/><br/>
+    <?php if(get('type') == 'banks'): ?>
+    <label>Kí hiệu</label>
+    <input type="text" name="alias" class="input-xlarge"/><br/>
+    <label>Mô tả</label>
+    <input type="text" name="desc" class="input-xlarge"/><br/>
+    <?php endif; ?>
+    <button type="submit" class="btn btn-primary"><i class="icon-save"></i>Tạo mới</button>
+</form>

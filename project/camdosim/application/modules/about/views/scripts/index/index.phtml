@@ -1,0 +1,10 @@
+<ul class="breadcrumb">
+    <li><a href="<?php echo BASE_URL ?>" onclick="call_ajax_load_content(this, 'Trang chủ');
+            return false;">Trang chủ</a> >> </li>
+    <li>Giới thiệu</li>
+</ul>
+<?php $about = $this->about;?>
+<article class="single">
+    <header><h2><?php echo $about['title']?></h2></header>
+    <section><?php echo $about['desc']?></section>
+</article>

@@ -1,0 +1,29 @@
+
+<?php
+$count = $this->count;
+$start = $this->start;
+$services = $this->services;
+$row_per_page = $this->row_per_page;
+?>
+
+<?php foreach ($services as $s) : ?>
+        <article>
+            <header>
+                <h2><a href="service/index/view?ID=<?php echo $s['ID'] ?>"><?php echo $s['title'] ?></a></h2>
+            </header>
+            <section>
+                <div class="thumb">
+                    <div>
+                        <img src="<?php echo BASE_URL ?>/upload/service/<?php echo $s['thumb'] ?>" 
+                     onclick="call_ajax_load_content(this,'Dịch vụ - <?php echo $s['title']?>','service/index/view?ID=<?php echo $s['ID'] ?>'); return false;" 
+                     alt="<?php echo $s['title']?>" title="<?php echo $s['title']?>"/>
+                    </div>
+                </div>
+                <p><?php echo short_title($s['summary'], 250) ?></p>
+            </section>
+        </article>
+<?php endforeach; ?>
+
+<?php if ($start + $row_per_page < $count): ?>
+    <a class="load_extra" href="javascript:;" onclick="call_extra_content(baseURL + '/service/index/index?start=<?php echo $start + $row_per_page ?>', '.home-content');$(this).remove()">Hiển thị thêm</a>
+<?php endif; ?>

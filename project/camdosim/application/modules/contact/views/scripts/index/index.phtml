@@ -1,0 +1,35 @@
+<ul class="breadcrumb">
+    <li><a href="<?php echo BASE_URL ?>" onclick="call_ajax_load_content(this, 'Trang chủ');
+            return false;">Trang chủ</a> >> </li>
+    <li>Liên hệ</li>
+</ul>
+<section class="form-content">
+    <form class="ajax-form" method="post" action="<?php echo BASE_URL ?>/contact/index">
+        <h1>Form Liên hệ :</h1>
+        <label>
+            <span>Tên của bạn</span><span class="required">*</span><input id="name" type="text" name="name" />
+        </label>
+        <label>
+            <span>Email của bạn</span><span class="required">*</span><input id="email" type="text" name="email" />
+        </label>
+        <label>
+            <span>Số điện thoại</span><input id="phone" type="text" name="phone" />
+        </label>
+        <label>
+            <span>Chủ đề</span><span class="required">*</span><input id="subject" type="text" name="subject" />
+        </label>
+        <label>
+            <span>Nội dung</span><span class="required">*</span><textarea id="feedback" name="feedback"></textarea>
+        </label>
+        <label>
+            <span>Nhập đúng các kí tự captcha</span><span class="required">*</span>
+            <div id="captcha"><?php echo $this->captcha ?></div>
+            <input type="hidden" name="hdCaptcha" value="<?php echo $this->captcha ?>"/>
+            <input id="txtCaptcha" name="captcha" type="text"/>
+        </label>
+        <div class="clear"></div>
+        <input type="submit" class="button" value="Gửi" />
+        <input type="reset" class="reset" value="Hủy" />
+    </form>
+</section>
+

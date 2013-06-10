@@ -1,0 +1,98 @@
+<?php
+$configs = $this->configs;
+$contacts = $this->contacts;
+$names = $contacts['names'];
+$phones = $contacts['phones'];
+$yahoos = $contacts['yahoos'];
+$emails = $contacts['emails'];
+$banks = $this->banks;
+?>
+
+<form enctype="multipart/form-data" action="<?php echo SUB_URL?>/default/setting/edit" method="post">
+    <div class="tab-wrap">
+        <label>Web title:</label>
+        <input type="text" value="<?php echo $configs['site_title'] ?>" name="site_title" class="input-xlarge"/>
+        <p class="section">Liên hệ <span class="sub">(Thông tin cập nhật trong hỗ trợ trực tuyến)</span></p>
+        <?php for ($i = 0; $i < count($names); $i++): ?>
+            <?php ?>
+            <div class="support">
+                <label>Tên liên hệ <span class="required">(*)</span></label>
+                <input type="text" value="<?php echo $names[$i] ?>" name="contact_name[]" class="input-xlarge"/>
+                <label>Số điện thoại <span class="required">(*)</span></label>
+                <input type="text" value="<?php echo $phones[$i] ?>" name="contact_phone[]" class="input-xlarge"/>
+                <label>yahoo <span class="required">(*)</span></label>
+                <input type="text" value="<?php echo $yahoos[$i] ?>" name="yahoo[]" class="input-xlarge"/>
+                <label>Email <span class="required">(*)</span></label>
+                <input type="text" name="contact_email[]" value="<?php echo $emails[$i] ?>" class="input-xlarge"/>
+            </div>
+        <?php endfor; ?>
+        <a href="javascript:;" id="add_more"><img alt="Thêm liên hệ" title="Thêm liên hệ" src="<?php echo SUB_URL ?>/public/style/images/Add.png" width="20"/></a>
+        <a href="javascript:;" id="remove"><img alt="Xóa liên hệ" title="Xóa liên hệ" src="<?php echo SUB_URL ?>/public/style/images/Minus.png" width="20"/></a>
+        <div style="clear:both"></div>
+        <label>Địa chỉ <span class="required">(*)</span></label>
+        <input type="text" value="<?php echo $configs['contact_address']?>" name="contact_address" class="input-xlarge"/>
+        <label>Longitude <span class="required">(*)</span> <span class="sub">(Kinh độ)</span></label>
+        <input type="text" value="<?php echo $configs['lng']?>" name="lng" class="input-xlarge"/>
+        <label>Latitude <span class="required">(*)</span> <span class="sub">(Vĩ độ)</span></label>
+        <input type="text" value="<?php echo $configs['lat']?>" name="lat" class="input-xlarge"/>
+        <label>Facebook <span class="sub">(Điền địa chỉ trang facebook fan page)</span></label>
+        <input type="text" name="facebook" value="<?php echo $configs['facebook']?>" class="input-xlarge"/>
+        <label>Tài khoản</label>
+        <input type="text" value="<?php echo $configs['bank_account']?>" name="bank_account" class="input-small"/>
+        <select name="bank_id" class="input-medium">
+            <option>Chọn ngân hàng</option>
+            <?php foreach ($banks as $b):?>
+            <option value="<?php echo $b['ID'] ?>" <?php echo ($configs['bank_id'] == $b['ID']) ? "selected='selected'" : ""?>><?php echo $b['title']?></option>
+            <?php endforeach;?>
+        </select>
+        <input type="text" value="<?php echo $configs['bank_branch']?>" name="bank_branch" class="input-small"/>
+        <label>Logo</label>
+        <img src="<?php echo BASE_URL ?>/upload/logo/<?php echo $configs['logo'] == NULL ? "logo.jpg" : $configs['logo']?>" width="150" id="show_img"/><br/>
+        <input type="file" id="myfile" class="myfile" name="myfile" />
+        <label>Số dòng / Trang</label>
+        <input type="number" value="<?php echo $configs['page_number']?>" name="page_number" class="input-xlarge"/>
+        <label>Dung lượng upload tối đa (MB)</label>
+        <input type="number" value="<?php echo $configs['max_size_upload']?>" name="max_size_upload" class="input-xlarge"/>
+        <label>Từ khóa</label>
+        <input type="text" name="keywords" value="<?php echo $configs['keywords']?>" class="input-xlarge"/>
+        <label>Mô tả</label>
+        <textarea name="desc" class="input-xlarge"><?php echo $configs['desc']?></textarea>
+    </div>
+    <div class="btn-side">
+        <button type="submit" class="btn btn-primary"><i class="icon-save"></i> Cập nhật</button>
+<!--        <a href="#" data-toggle="modal" class="btn">Delete</a>-->
+    </div>
+</form>
+<script type="text/javascript">
+    (function($) {
+        $(document).ready(function() {
+            var remove = $('#remove');
+            var count = $('div.support').length;
+            if (count == 1) {
+                $(remove).hide();
+            }
+            $('#add_more').click(function() {
+                var content = '<label>Tên liên hệ: <span class="required">(*)</span></label>'
+                        + '<input type="text" value="" name="contact_name[]" class="input-xlarge"/>'
+                        + '<label>Số điện thoại: <span class="required">(*)</span></label>'
+                        + '<input type="text" value="" name="contact_phone[]" class="input-xlarge"/>'
+                        + '<label>yahoo <span class="required">(*)</span></label>'
+                        + '<input type="text" value="" name="yahoo[]" class="input-xlarge"/>'
+                        + '<label>Email <span class="required">(*)</span></label>'
+                        + '<input type="text" name="contact_email" value="" class="input-xlarge"/>';
+                content = "<div class='support'>" + content + "</div>";
+                $(content).insertBefore(this);
+                $(remove).css('display', 'block');
+            });
+            $(remove).click(function() {
+                $(this).prev().prev().remove();
+                count = $('div.support').length;
+                if (count == 1) {
+                    $(this).hide();
+                }
+            });
+            
+        });
+        
+    })(jQuery);
+</script>

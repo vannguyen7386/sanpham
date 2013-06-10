@@ -1,0 +1,25 @@
+
+<?php
+echo $this->render('render/slide.phtml');
+$posts = $this->posts;
+?>
+
+<section class="home-content">
+    <?php foreach ($posts as $p): ?>
+        <article>
+            <header>
+                <h2><a href="<?php echo $p['link'] ?>" onclick="call_ajax_load_content(this, '<?php echo $p['type'] . " - " . $p['title'] ?>');
+                        return false;"><?php echo $p['title'] ?></a></h2>
+            </header>
+            <section>
+                <div class="thumb">
+                    <div>
+                        <img src="<?php echo $p['thumb'] ?>" alt="<?php echo $p['title'] ?>" title="<?php echo $p['title'] ?>"/>
+                    </div>
+                </div>
+                <p><?php echo $p['summary'] ?></p>
+            </section>
+        </article>
+    <?php endforeach; ?>
+</section>
+

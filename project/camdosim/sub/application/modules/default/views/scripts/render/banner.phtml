@@ -1,0 +1,12 @@
+<?php $config = $this->configs?>
+<p>Fix size: width: 981px - Height: auto</p>
+<form action="<?php echo SUB_URL ?>/default/setting/editbanner" enctype="multipart/form-data" method="post">
+<p>
+    <img class="banner" id="banner_show" src="<?php echo BASE_URL . "/upload/banner/" . $config['banner']; ?>"/>
+    <input type="file" name="banner" id="banner_file" />
+    <div class="btn-side">
+        <button type="submit" class="btn btn-primary"><i class="icon-save"></i> Cập nhật</button>
+<!--        <a href="#" data-toggle="modal" class="btn">Delete</a>-->
+    </div>
+</p>
+</form>

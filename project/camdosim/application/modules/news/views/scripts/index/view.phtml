@@ -1,0 +1,30 @@
+<?php
+$news = $this->news;
+?>
+<ul class="breadcrumb">
+    <li><a href="<?php echo BASE_URL ?>" onclick="call_ajax_load_content(this, 'Trang chủ');
+            return false;">Trang chủ</a> >> </li>
+    <li><a href="news/index" onclick="call_ajax_load_content(this, 'Tin tức');
+            return false;">Tin tức</a> >> </li>
+    <li><?php echo $news['title'] ?></li>
+</ul>
+<article class="single">
+    <header><h2><?php echo $news['title'] ?></h2></header>
+    <p class="sub"><?php echo date('H:i:s - d/m/Y', strtotime($news['date_created'])) ?>
+  
+    </p>
+    <section>
+        <?php echo $news['content'] ?>
+    </section>
+</article>
+<section class="other">
+    <?php $others = $this->others;?>
+    <header><h3>Cùng thể loại</h3></header>
+    <?php foreach ($others as $o):?>
+    <div>
+        <p>&squarf; <a title="<?php echo $o['title']?>" onclick="call_ajax_load_content(this,'Tin tức - <?php echo $o['title']?>');  return false;" href="news/index/view?ID=<?php echo $o['ID'] ?>"><?php echo $o['title'] ?></a>
+            <span class="sub">(<?php echo date('d/m', strtotime($o['date_created']))?>)</span>
+        </p>
+    </div>
+    <?php endforeach;?>
+</section>

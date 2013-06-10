@@ -1,0 +1,53 @@
+<div>
+
+    <form id="form-content" action="<?php echo SUB_URL ?>/default/setting/delete?type=service" method="post" class="ajax-form">
+        <?php
+        $scates = $this->scates;
+        ?>
+
+        <button class="btn btn-primary" type="button" onclick="show_dialog('Tạo mới nhóm dịch vụ','', baseURL + '/default/setting/add?type=service')">
+            <i class="icon-plus"></i>Tạo mới</button>
+        <button class="btn btn-danger" type="button" 
+                onclick="confirmDialog('Xóa nhóm dịch vụ đã chọn ???', function() {
+                    $('#form-content').submit();
+                });">Xóa</button>
+
+        <div class="well" style="margin-top: 15px;">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="width: 20px;"><input type="checkbox" id="ckall" onclick="check_and_uncheck_all(this.id);"/></th>
+                        <th>#</th>
+                        <th>Nhóm dịch vụ</th>
+                        <th>Ngày tạo</th>
+                        <th>Tạo</th>
+                        <th>Ngày sửa</th>
+                        <th>Sửa </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($scates as $k => $s): ?>
+                        <tr>
+                            <td><input type="checkbox" name="ID[]" style="margin: -4px 0 0 0" class="ckall_item" value="<?php echo $s['ID'] ?>"/></td>
+                            <td><?php echo $k + 1 ?></td>
+                            <td><?php echo short_title($s['title'], 150) ?></td>
+                            <td><?php echo show_date($s['date_created']) ?></td>
+                            <td><?php echo NV_User::getUsername($s['created_by_id']) ?></td>
+                            <td><?php echo $s['date_updated'] == null ? "" : show_date($s['date_updated']) ?></td>
+                            <td><?php echo NV_User::getUsername($s['updated_by_id']) ?></td>
+                            <td>
+                                <a href="javascript:;" onclick="show_dialog('Sửa nhóm', '', baseURL + '/default/setting/editcate?ID=<?php echo $s['ID'] ?>&type=service');
+                    return false;"><i class="icon-pencil"></i></a>
+                                <a href="#" onclick="delete_item('Xóa nhóm đã chọn', '<?php echo SUB_URL ?>/default/setting/delete?ID=<?php echo $s['ID'] ?>&type=service');
+                    return false;"><i class="icon-remove"></i></a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+
+        </div>
+    </form>
+</div>

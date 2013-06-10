@@ -1,0 +1,71 @@
+<div class="header">
+    <h1 class="page-title">Thêm bản tin</h1>
+</div>
+
+<ul class="breadcrumb">
+    <li><a href="<?php echo SUB_URL ?>" >Trang chủ</a> <span class="divider">/</span></li>
+    <li><a href="news/index" onclick="call_ajax_load_content(this, 'Tin tức');
+            return false;" >Tin tức</a> <span class="divider">/</span></li>
+    <li class="active">Thêm tin tức</li>
+</ul>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <?php
+        if ($this->error):
+            ?>
+            <div class="alert alert-error">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <?php echo $this->error ?>
+            </div>
+        <?php endif; ?>
+        <form id="form-content" action="<?php echo SUB_URL ?>/news/index/add" method="post" enctype="multipart/form-data">
+            <?php
+            $categories = $this->categories;
+            ?>
+            <label>Tiêu đề <span class="required">(*)</span></label>
+            <input type="text" name="title" value="" class="input-xlarge"/>
+            <label>Tóm tắt <span class="required">(*)</span><span class="sub">(Thông tin tóm lược hiển thị trong danh sách)</span></label>
+            <input type="text" name="summary" value="" class="input-xlarge"/>
+            <label>Nhóm tin <span class="required">(*)</span></label>
+            <select name="category_id" class="input-xlarge">
+                <option value="">Chọn nhóm tin</option>
+                <?php foreach ($categories as $c): ?>
+                    <option value="<?php echo $c['ID'] ?>"><?php echo $c['title'] ?></option>
+                    <?php
+                endforeach;
+                ;
+                ?>
+            </select>
+            <label>Nguồn tin</label>
+            <input type="text" name="origin" class="input-xlarge"/>
+            <label>Đường dẫn</label>
+            <input type="text" name="origin_link" class="input-xlarge"/>
+            <?php $id = uniqid(); ?>
+            <label>Ảnh đại diện</label>
+            <img src="" id="<?php echo $id ?>_show" width="120"/>
+            <input type="file" name="thumb" value="" id="<?php echo $id ?>" class="input-xlarge"/>
+            
+            <label>Keywords</label>
+            <input type="text" name="keywords" value=""  class="input-xlarge"/>
+            <label>Nội dung</label>
+            <textarea name="content">Nội dung</textarea>
+
+            <div style="margin-top: 15px">
+                <button type="submit" class="btn btn-primary"><i class="icon-save"></i> Cập nhật</button>
+                <button type="reset" class="btn"><i class="icon-refresh"></i> Hủy bỏ</button>
+            </div>
+        </form>   
+    </div>
+</div>
+<script type="text/javascript">
+        (function($) {
+            $(document).ready(function() {
+                upload_img('<?php echo $id ?>', '<?php echo $id ?>_show', '<?php echo $id ?>_path');
+                var editor = CKEDITOR.replace('content', {
+                    height: 400
+                });
+                CKFinder.setupCKEditor(editor, baseURL + '/public/style/ckeditor/ckfinder/');
+            });
+        })(jQuery);
+</script>

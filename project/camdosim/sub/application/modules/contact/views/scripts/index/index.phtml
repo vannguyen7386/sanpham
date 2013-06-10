@@ -1,0 +1,93 @@
+<div class="header">
+    <h1 class="page-title">Liên hệ</h1>
+</div>
+
+<ul class="breadcrumb">
+    <li><a href="<?php echo SUB_URL ?>" >Trang chủ</a> <span class="divider">/</span></li>
+    <li class="active">Liên hệ</li>
+</ul>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+       
+        <form id="form-content" action="<?php echo SUB_URL ?>/contact/index/delete" method="post" class="ajax-form">
+            <?php
+            
+            $count = $this->count;
+            $start = $this->start;
+            $contacts = $this->contacts;
+            $row_per_page = $this->row_per_page;
+     
+            ?>
+            <div class="btn-toolbar">
+                <button class="btn btn-primary disabled" type="button"><i class="icon-plus"></i>Tạo mới</button>
+                <button class="btn btn-danger" type="button" 
+                        onclick="confirmDialog('Xóa liên hệ đã chọn ???', function(){$('#form-content').submit();})">Xóa</button>
+                <div class="btn-group">
+                </div>
+            </div>
+            <div class="well">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width: 20px;"><input type="checkbox" id="ckall" onclick="check_and_uncheck_all(this.id);"/></th>
+                            <th>#</th>
+                            <th>Tên khách hàng</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Tiêu đề</th>
+                            <th>Ngày tạo</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($contacts as $k => $s): ?>
+                            <tr>
+                                <td><input type="checkbox" name="ID[]" style="margin: -4px 0 0 0" class="ckall_item" value="<?php echo $s['ID'] ?>"/></td>
+                                <td><?php echo $k + 1 ?></td>
+                                <td><?php echo $s['name'] ?></td>
+                                <td><?php echo $s['email'] ?></td>
+                                <td><?php echo $s['phone'] ?></td>
+                                <td>
+                                    <a href="javascript:;" onclick="show_dialog('Chi tiết', '', baseURL + '/contact/index/view?ID=<?php echo $s['ID']?>')">
+                                        <?php echo $s['title'] ?>
+                                    </a>    
+                                </td>
+                                <td><?php echo show_date($s['date_created'])?></td>
+                                <td>                      
+                                    <a href="#" onclick="delete_item('Xóa liên hệ', '<?php echo SUB_URL?>/contact/index/delete?ID=<?php echo $s['ID']?>'); return false;"><i class="icon-remove"></i></a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="pagination">
+                <?php
+                $config = getCacheDB('configs');
+                $page = ceil($count / $row_per_page);
+                $current_page = ceil($start / $config['page_number']) + 1;
+                $prev = $start == 0 ? 0 : $start - $config['page_number'];
+                $next = $current_page == $page ? $start : $start + $config['page_number'];
+                ?>
+                <ul>
+                    <li><a href="contact/index?start=<?php echo $prev ?>" <?php echo $start == 0 ? "class='disabled'" : "" ?>
+                           onclick="call_ajax_load_content(this, 'Liên hệ');
+                        return false;">Prev</a></li>
+
+                    <?php for ($i = 1; $i <= $page; $i++): ?> 
+                        <li><a href="contact/index?start=<?php echo ($config['page_number'] * ($i - 1)) ?>" <?php echo $i == $current_page ? "class='current'" : '' ?>
+                               onclick="call_ajax_load_content(this, 'Liên hệ');
+                            return false;"><?php echo $i ?></a></li>
+                        <?php endfor; ?>
+                    <li><a href="contact/index?start=<?php echo $next ?>" <?php echo $current_page == $page ? "class='disabled'" : "" ?>
+                           onclick="call_ajax_load_content(this, 'Liên hệ');
+                        return false;">Next</a></li>
+                </ul>
+            </div>
+        </form>   
+    </div>
+</div>
+

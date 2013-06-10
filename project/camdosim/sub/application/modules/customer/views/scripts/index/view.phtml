@@ -1,0 +1,75 @@
+<?php $customer = $this->customer; ?>
+<div class="header">
+    <h1 class="page-title">Khách hàng - <?php echo $customer['name'] ?></h1>
+</div>
+
+<ul class="breadcrumb">
+    <li><a href="<?php echo SUB_URL ?>" >Trang chủ</a> <span class="divider">/</span></li>
+    <li><a href="customer/index" onclick="call_ajax_load_content(this, 'Khách hàng');
+            return false;" >Khách hàng</a> <span class="divider">/</span></li>
+    <li class="active"><?php echo $customer['name'] ?></li>
+</ul>
+
+<div class="container-fluid">
+    <div class="well info">
+        <div class="section">Thông tin chung</div>
+        <div class="row-info">
+            <div class="row-left">Mã KH: </div>
+            <div class="row-right"><?php echo $customer['code'] ?></div>
+        </div>
+        <div class="row-info">
+            <div class="row-left">Tên khách hàng: </div>
+            <div class="row-right"><?php echo $customer['name'] ?></div>
+        </div>
+        <div class="row-info">
+            <div class="row-left">Email: </div>
+            <div class="row-right"><?php echo $customer['email'] ?></div>
+        </div>
+        <div class="row-info">
+            <div class="row-left">Điện thoại: </div>
+            <div class="row-right"><?php echo $customer['phone'] ?></div>
+        </div>
+        <div class="row-info">
+            <div class="row-left">Địa chỉ: </div>
+            <div class="row-right"><?php echo $customer['address'] ?></div>
+        </div>
+        <?php
+        $cus_banks = $customer['banks'];
+        $banks = $this->banks;
+        $account = array();
+        if (count($cus_banks) > 0) :
+            ?>
+            <div class="row-info">
+                <div class="row-left">Tài khoản: </div>
+                <div class="row-right">
+                    <?php
+                    foreach ($cus_banks as $b) {
+                        $account[] = $b['account_number'] . " - " . $banks[$b['bank_id']]['title'] . ($b['bank_branch'] == NULL ? "" : " - " . $b['bank_branch']);
+                    }
+                    echo implode('<br/>', $account);
+                    ?>
+                </div>
+            </div>    
+        <?php endif; ?>
+        <?php
+        $cus_info = $customer['info'];
+        $cus_info_type = $this->cus_info_type;
+        $info = array();
+        if (count($cus_info) > 0) :
+            ?>
+        <div class="section">Thông tin khác</div>
+            <?php
+            foreach ($cus_info as $b) {
+                $info[] = '<div class="row-info">
+                                <div class="row-left">' . $cus_info_type[$b['type']]['title'] . ': </div>
+                                <div class="row-right">
+                                    ' . $b['value'] . '
+                                </div>
+                            </div>';
+            }
+            echo implode('', $info);
+            ?>
+        <?php endif; ?>
+    </div>
+</div>
+

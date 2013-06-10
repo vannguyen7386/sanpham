@@ -1,0 +1,104 @@
+<div class="header">
+    <h1 class="page-title">Khách hàng</h1>
+</div>
+
+<ul class="breadcrumb">
+    <li><a href="<?php echo SUB_URL ?>" >Trang chủ</a> <span class="divider">/</span></li>
+    <li class="active">Khách hàng</li>
+</ul>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <?php
+        if ($this->success):
+        ?>
+        <div class="alert alert-info">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong><?php echo $this->success; ?></strong> 
+        </div>
+        <?php endif; ?>
+        <form id="form-content" action="<?php echo SUB_URL ?>/service/index/delete" method="post" class="ajax-form">
+            <?php
+            
+            $count = $this->count;
+            $start = $this->start;
+            $posts = $this->posts;
+            $row_per_page = $this->row_per_page;
+            ?>
+            <div class="btn-toolbar">
+                <button class="btn btn-primary" type="button" onclick="call_ajax_load_content(this, 'Thêm khách hàng', 'customer/index/add');"><i class="icon-plus"></i>Tạo mới</button>
+                <button class="btn btn-danger" type="button" 
+                        onclick="confirmDialog('Xóa khách hàng đã chọn ???', function(){$('#form-content').submit();})">Xóa</button>
+                <div class="btn-group">
+                </div>
+            </div>
+            <div class="well">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width: 20px;"><input type="checkbox" id="ckall" onclick="check_and_uncheck_all(this.id);"/></th>
+                            <th>#</th>
+                            <th>Mã KH</th>
+                            <th>Tên KH</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Ngày tạo </th>
+                            <th>Người tạo </th>
+                            <th>Ngày sửa </th>
+                            <th>Người sửa</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($posts as $k => $s): ?>
+                            <tr>
+                                <td><input type="checkbox" name="ID[]" style="margin: -4px 0 0 0" class="ckall_item" value="<?php echo $s['ID'] ?>"/></td>
+                                <td><?php echo $k + 1 ?></td>
+                                <td><a href="customer/index/view?ID=<?php echo $s['ID']?>" 
+                                       onclick="call_ajax_load_content(this, 'Chi tiết khách hàng'); return false;"><?php echo $s['code'] ?></a></td>
+                                <td><a href="customer/index/view?ID=<?php echo $s['ID']?>" 
+                                       onclick="call_ajax_load_content(this, 'Chi tiết khách hàng'); return false;"><?php echo $s['name'] ?></a></td>
+                                <td><?php echo $s['email'] ?></td>
+                                <td><?php echo $s['phone'] ?></td>
+                                <td><?php echo show_date($s['date_created']) ?></td>
+                                <td><?php echo NV_User::getUsername($s['created_by_id']) ?></td>
+                                <td><?php echo $s['date_updated'] == null ? "" : show_date($s['date_updated']) ?></td>
+                                <td><?php echo NV_User::getUsername($s['updated_by_id']) ?></td>
+                                <td>
+                                    <a href="customer/index/edit?ID=<?php echo $s['ID'] ?>" onclick="call_ajax_load_content(this, 'Sửa khách hàng'); return false;"><i class="icon-pencil"></i></a>
+                                    <a href="#" onclick="delete_item('Xóa khách hàng đã chọn', '<?php echo SUB_URL?>/customer/index/delete?ID=<?php echo $s['ID']?>'); return false;"><i class="icon-remove"></i></a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="pagination">
+                <?php
+                $config = getCacheDB('configs');
+                $page = ceil($count / $row_per_page);
+                $current_page = ceil($start / $config['page_number']) + 1;
+                $prev = $start == 0 ? 0 : $start - $config['page_number'];
+                $next = $current_page == $page ? $start : $start + $config['page_number'];
+                ?>
+                <ul>
+                    <li><a href="customer/index?start=<?php echo $prev ?>" <?php echo $start == 0 ? "class='disabled'" : "" ?>
+                           onclick="call_ajax_load_content(this, 'Khách hàng');
+                        return false;">Prev</a></li>
+
+                    <?php for ($i = 1; $i <= $page; $i++): ?> 
+                        <li><a href="customer/index?start=<?php echo ($config['page_number'] * ($i - 1)) ?>" <?php echo $i == $current_page ? "class='current'" : '' ?>
+                               onclick="call_ajax_load_content(this, 'Khách hàng');
+                            return false;"><?php echo $i ?></a></li>
+                        <?php endfor; ?>
+                    <li><a href="customer/index?start=<?php echo $next ?>" <?php echo $current_page == $page ? "class='disabled'" : "" ?>
+                           onclick="call_ajax_load_content(this, 'Khách hàng');
+                        return false;">Next</a></li>
+                </ul>
+            </div>
+        </form>   
+    </div>
+</div>
+
